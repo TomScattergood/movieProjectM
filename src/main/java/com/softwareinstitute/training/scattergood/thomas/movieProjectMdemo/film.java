@@ -12,14 +12,14 @@ public class film {
     private int film_id;
 
     private String title;
-    private int runtime;
-    private String genre;
+    private int length;
+    private double replacement_cost;
     private double rental_rate;
 
-    public film(String title, int runtime, String genre, double rental_rate) {
+    public film(String title, int length, double replacement_cost, double rental_rate) {
         this.title = title;
-        this.runtime = runtime;
-        this.genre = genre;
+        this.length = length;
+        this.replacement_cost = replacement_cost;
         this.rental_rate = rental_rate;
     }
 
@@ -35,20 +35,21 @@ public class film {
         this.title = title;
     }
 
-    public int getRuntime() {
-        return runtime;
+    public int getLength() {
+        return length;
     }
 
-    public void setRuntime(int runtime) {
-        this.runtime = runtime;
+    public void setLength(int length) {
+        this.length = length;
     }
 
-    public String getGenre() {
-        return genre;
+
+    public double getReplacement_cost() {
+        return replacement_cost;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setReplacement_cost(double replacement_cost) {
+        this.replacement_cost = replacement_cost;
     }
 
     public double getRental_rate() {
@@ -58,14 +59,14 @@ public class film {
     public void setRental_rate(double rental_rate) {
         this.rental_rate = rental_rate;
     }
-
+/*
     public int getfilm_id() {
         return film_id;
     }
 
     public void setfilm_id(int film_id) {
         this.film_id = film_id;
-    }
+    } */
 }
 
 
