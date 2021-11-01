@@ -1,12 +1,10 @@
 package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "film")
 public class film {
 
     @Id
@@ -18,14 +16,14 @@ public class film {
     private String genre;
     private double rental_rate;
 
-    public film(String title, int runtime, String genre, double rental_rate){
-        this.title=title;
-        this.runtime=runtime;
-        this.genre=genre;
-        this.rental_rate=rental_rate;
+    public film(String title, int runtime, String genre, double rental_rate) {
+        this.title = title;
+        this.runtime = runtime;
+        this.genre = genre;
+        this.rental_rate = rental_rate;
     }
 
-    public film(){
+    public film() {
 
     }
 
@@ -53,17 +51,24 @@ public class film {
         this.genre = genre;
     }
 
-    public double getRental_rate(){return rental_rate;}
+    public double getRental_rate() {
+        return rental_rate;
+    }
 
-    public void setRental_rate(double rental_rate){this.rental_rate = rental_rate;}
+    public void setRental_rate(double rental_rate) {
+        this.rental_rate = rental_rate;
+    }
 
-    public int getId() {
+    public int getfilm_id() {
         return film_id;
     }
 
     public void setfilm_id(int film_id) {
         this.film_id = film_id;
     }
+}
+
+
     /*  public String getJsonObjectOffilm(){
         return "{"+
                 "\"title\" : \" " + title + "\"," +
@@ -72,5 +77,4 @@ public class film {
                 "\"rental rate\" : \" " + rental_rate + "\"" +
                 "}";
     }   */
-}
 
