@@ -2,18 +2,34 @@ package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootApplication
 @RestController
+@RequestMapping("/films")
 public class movieProjectMdemoApplication {
 
+	@Autowired
+	private filmRepository filmRepository;
 	public static void main(String[] args) {SpringApplication.run(movieProjectMdemoApplication.class, args);}
 
-	@GetMapping("/getMovie")
-	public String movieResponse(){
-		movie movie = new movie("Halloween",102, "Horror");
-		return movie.getJsonObjectOfMovie();
+	@GetMapping("/all")
+	public @ResponseBody Iterable <film> getAllUsers(){
+		return filmRepository.findAll();
 	}
+
+	@PostMapping("/addfilm")
+	public @ResponseBody String addAFilm (@RequestParam String title,
+										 @RequestParam int runtime, @RequestParam String genre, @RequestParam int rental_rate) {
+
+		film savedfilm = new film(title, runtime, genre, rental_rate);
+		filmRepository.save(savedfilm);
+		return "Saved";
+	}
+
+	/*{
+		film film = new film("Halloween",102, "Horror", 4.99);
+		return film.getJsonObjectOffilm();
+	}*/
 }
