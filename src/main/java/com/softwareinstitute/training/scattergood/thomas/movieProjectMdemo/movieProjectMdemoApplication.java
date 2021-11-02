@@ -7,19 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootApplication
 @RestController
-@RequestMapping({"/films", "/customers"})
+@RequestMapping({"/customers", "/films", "/staff"})
 public class movieProjectMdemoApplication {
-
 	@Autowired
 	private customerRepository customerRepository;
 	@Autowired
 	private filmRepository filmRepository;
+	@Autowired
+	private staffRepository staffRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(movieProjectMdemoApplication.class, args);
 	}
-
-
 	@GetMapping("/allcustomers")
 	public @ResponseBody
 	Iterable<customer> getAllUsers() {
@@ -30,12 +29,16 @@ public class movieProjectMdemoApplication {
 	Iterable<film> getAllFilms() {
 		return filmRepository.findAll();
 	}
-
+	@GetMapping("/allstaff")
+	public @ResponseBody
+	Iterable<staff> getAllStaff(){
+		return staffRepository.findAll();
+	}
 	@PostMapping("/addcustomer")
 	public @ResponseBody
 	String addACustomer(@RequestParam int customer_id, @RequestParam int store_id, @RequestParam String first_name,
-						@RequestParam String last_name, @RequestParam int address_id) {
-		customer savedcustomer = new customer(customer_id, store_id, first_name, last_name, address_id);
+						@RequestParam String last_name, @RequestParam String email,  @RequestParam int address_id, @RequestParam String create_date) {
+		customer savedcustomer = new customer(customer_id, store_id, first_name, last_name, email, address_id, create_date);
 		customerRepository.save(savedcustomer);
 		return "Saved";
 	}
@@ -43,9 +46,16 @@ public class movieProjectMdemoApplication {
 	@PostMapping("/addfilm")
 	public @ResponseBody String addAFilm (@RequestParam String title, @RequestParam String description, @RequestParam int release_year, @RequestParam int rental_duration,
 										  @RequestParam double rental_rate, @RequestParam int length, @RequestParam double replacement_cost) {
-
 		film savedfilm = new film(title, description, release_year, rental_duration, rental_rate, length, replacement_cost);
 		filmRepository.save(savedfilm);
 		return "Saved";
 		}
+
+		@PostMapping("/addstaff")
+		public @ResponseBody String addAStaff (@RequestParam int staff_id, @RequestParam String first_name,
+					@RequestParam String last_name, @RequestParam int address_id, @RequestParam String email, @RequestParam int store_id, @RequestParam String username) {
+			staff savedstaff = new staff(staff_id, first_name, last_name, address_id, email, store_id, username);
+			staffRepository.save(savedstaff);
+			return "Saved";
+	}
 }
