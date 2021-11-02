@@ -7,16 +7,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootApplication
 @RestController
-@RequestMapping({"/films"})
+@RequestMapping({"/films", "/customers"})
 public class movieProjectMdemoApplication {
 
 	@Autowired
+	private customerRepository customerRepository;
+	@Autowired
 	private filmRepository filmRepository;
-	public static void main(String[] args) {SpringApplication.run(movieProjectMdemoApplication.class, args);}
 
-	@GetMapping("/all")
-	public @ResponseBody Iterable <film>getAllUsers(){
+	public static void main(String[] args) {
+		SpringApplication.run(movieProjectMdemoApplication.class, args);
+	}
+
+
+	@GetMapping("/allcustomers")
+	public @ResponseBody
+	Iterable<customer> getAllUsers() {
+		return customerRepository.findAll();
+	}
+	@GetMapping("/allfilms")
+	public @ResponseBody
+	Iterable<film> getAllFilms() {
 		return filmRepository.findAll();
+	}
+
+	@PostMapping("/addcustomer")
+	public @ResponseBody
+	String addACustomer(@RequestParam int customer_id, @RequestParam int store_id, @RequestParam String first_name,
+						@RequestParam String last_name, @RequestParam int address_id) {
+		customer savedcustomer = new customer(customer_id, store_id, first_name, last_name, address_id);
+		customerRepository.save(savedcustomer);
+		return "Saved";
 	}
 
 	@PostMapping("/addfilm")
@@ -27,11 +48,4 @@ public class movieProjectMdemoApplication {
 		filmRepository.save(savedfilm);
 		return "Saved";
 		}
-
-
-	}
-
-	/*{
-		film film = new film("Halloween",102, "Horror", 4.99);
-		return film.getJsonObjectOffilm();
-	}*/
+}
