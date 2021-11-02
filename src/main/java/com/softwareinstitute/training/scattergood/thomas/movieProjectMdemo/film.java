@@ -97,24 +97,4 @@ public class film {
     public void setReplacement_cost(double replacement_cost) {
         this.replacement_cost = replacement_cost;
     }
-
-   /*
-    public int getfilm_id() {
-        return film_id;
-    }
-
-    public void setfilm_id(int film_id) {
-        this.film_id = film_id;
-    } */
 }
-
-
-    /*  public String getJsonObjectOffilm(){
-        return "{"+
-                "\"title\" : \" " + title + "\"," +
-                "\"runtime\" : \" " + runtime + "\", " +
-                "\"genre\" : \" " + genre + "\"" +
-                "\"rental rate\" : \" " + rental_rate + "\"" +
-                "}";
-    }   */
-

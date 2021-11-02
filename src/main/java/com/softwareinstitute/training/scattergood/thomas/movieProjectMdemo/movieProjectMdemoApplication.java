@@ -21,7 +21,7 @@ public class movieProjectMdemoApplication {
 	}
 	@GetMapping("/allcustomers")
 	public @ResponseBody
-	Iterable<customer> getAllUsers() {
+	Iterable<customer> getAllCustomers() {
 		return customerRepository.findAll();
 	}
 	@GetMapping("/allfilms")
@@ -52,9 +52,9 @@ public class movieProjectMdemoApplication {
 		}
 
 		@PostMapping("/addstaff")
-		public @ResponseBody String addAStaff (@RequestParam int staff_id, @RequestParam String first_name,
-					@RequestParam String last_name, @RequestParam int address_id, @RequestParam String email, @RequestParam int store_id, @RequestParam String username) {
-			staff savedstaff = new staff(staff_id, first_name, last_name, address_id, email, store_id, username);
+		public @ResponseBody String addAStaff (@RequestParam String first_name,
+					@RequestParam String last_name){ //@RequestParam int address_id, @RequestParam String email, @RequestParam int store_id, @RequestParam String username) {
+			staff savedstaff = new staff(first_name, last_name); //address_id, email, store_id, username);
 			staffRepository.save(savedstaff);
 			return "Saved";
 	}

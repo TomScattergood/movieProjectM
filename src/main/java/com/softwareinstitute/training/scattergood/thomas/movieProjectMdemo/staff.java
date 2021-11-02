@@ -9,34 +9,25 @@ public class staff {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int staff_id;
+   // private int staff_id;
     private String first_name;
     private String last_name;
-    private int address_id;
-    private String email;
-    private int store_id;
-    private String username;
+    //private int address_id;
+   // private String email;
+    //private int store_id;
+    //private String username;
 
-    public staff(int staff_id, String first_name, String last_name, int address_id, String email, int store_id, String username) {
-        this.staff_id = staff_id;
+    public staff(String first_name, String last_name) {//, int address_id, String email, int store_id, String username) {
         this.first_name = first_name;
         this.last_name = last_name;
-        this.address_id = address_id;
-        this.email=email;
-        this.store_id=store_id;
-        this.username=username;
+      //  this.address_id = address_id;
+       // this.email=email;
+       // this.store_id=store_id;
+        //this.username=username;
     }
 
     public staff() {
 
-    }
-
-    public int getStaff_id() {
-        return staff_id;
-    }
-
-    public void setStaff_id(int staff_id) {
-        this.staff_id = staff_id;
     }
 
     public String getFirst_name() {
@@ -54,7 +45,7 @@ public class staff {
     public void setLast_name(String last_name) {
         this.last_name = last_name;
     }
-
+/*
     public int getAddress_id() {
         return address_id;
     }
@@ -85,5 +76,5 @@ public class staff {
 
     public void setUsername(String username) {
         this.username = username;
-    }
+    }*/
 }
