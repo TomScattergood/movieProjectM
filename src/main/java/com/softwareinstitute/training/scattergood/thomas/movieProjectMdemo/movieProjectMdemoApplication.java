@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootApplication
 @RestController
-@RequestMapping("/films")
+@RequestMapping({"/films"})
 public class movieProjectMdemoApplication {
 
 	@Autowired
@@ -15,21 +15,23 @@ public class movieProjectMdemoApplication {
 	public static void main(String[] args) {SpringApplication.run(movieProjectMdemoApplication.class, args);}
 
 	@GetMapping("/all")
-	public @ResponseBody Iterable <film> getAllUsers(){
+	public @ResponseBody Iterable <film>getAllUsers(){
 		return filmRepository.findAll();
 	}
 
 	@PostMapping("/addfilm")
-	public @ResponseBody String addAFilm (@RequestParam String title, @RequestParam int length,
-										  @RequestParam double replacement_cost, @RequestParam int rental_rate) {
+	public @ResponseBody String addAFilm (@RequestParam String title, @RequestParam String description, @RequestParam int release_year, @RequestParam int rental_duration,
+										  @RequestParam double rental_rate, @RequestParam int length, @RequestParam double replacement_cost) {
 
-		film savedfilm = new film(title, length, replacement_cost, rental_rate);
+		film savedfilm = new film(title, description, release_year, rental_duration, rental_rate, length, replacement_cost);
 		filmRepository.save(savedfilm);
 		return "Saved";
+		}
+
+
 	}
 
 	/*{
 		film film = new film("Halloween",102, "Horror", 4.99);
 		return film.getJsonObjectOffilm();
 	}*/
-}

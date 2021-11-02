@@ -10,21 +10,36 @@ public class film {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int film_id;
-
     private String title;
+    private String description;
+    private int release_year;
+    private int rental_duration;
+    private double rental_rate;
     private int length;
     private double replacement_cost;
-    private double rental_rate;
 
-    public film(String title, int length, double replacement_cost, double rental_rate) {
+
+    public film(String title, String description, int release_year, int rental_duration, double rental_rate, int length, double replacement_cost) {
         this.title = title;
+        this.description=description;
+        this.release_year=release_year;
+        this.rental_duration=rental_duration;
+        this.rental_rate = rental_rate;
         this.length = length;
         this.replacement_cost = replacement_cost;
-        this.rental_rate = rental_rate;
+
     }
 
     public film() {
 
+    }
+
+    public int getFilm_id() {
+        return film_id;
+    }
+
+    public void setFilm_id(int film_id) {
+        this.film_id = film_id;
     }
 
     public String getTitle() {
@@ -35,21 +50,28 @@ public class film {
         this.title = title;
     }
 
-    public int getLength() {
-        return length;
+    public String getDescription() {
+        return description;
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-
-    public double getReplacement_cost() {
-        return replacement_cost;
+    public int getRelease_year() {
+        return release_year;
     }
 
-    public void setReplacement_cost(double replacement_cost) {
-        this.replacement_cost = replacement_cost;
+    public void setRelease_year(int release_year) {
+        this.release_year = release_year;
+    }
+
+    public int getRental_duration() {
+        return rental_duration;
+    }
+
+    public void setRental_duration(int rental_duration) {
+        this.rental_duration = rental_duration;
     }
 
     public double getRental_rate() {
@@ -59,7 +81,24 @@ public class film {
     public void setRental_rate(double rental_rate) {
         this.rental_rate = rental_rate;
     }
-/*
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public double getReplacement_cost() {
+        return replacement_cost;
+    }
+
+    public void setReplacement_cost(double replacement_cost) {
+        this.replacement_cost = replacement_cost;
+    }
+
+   /*
     public int getfilm_id() {
         return film_id;
     }
