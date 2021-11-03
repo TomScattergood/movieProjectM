@@ -53,17 +53,17 @@ public class movieProjectMdemoApplication {
 	}
 
 	@PostMapping("/addfilm")
-	public @ResponseBody String addAFilm (@RequestParam String title, @RequestParam String description, @RequestParam int release_year, @RequestParam int rental_duration,
+	public @ResponseBody String addAFilm (@RequestParam String title, @RequestParam int release_year, @RequestParam int language_id, @RequestParam int rental_duration,
 										  @RequestParam double rental_rate, @RequestParam int length, @RequestParam double replacement_cost) {
-		film savedfilm = new film(title, description, release_year, rental_duration, rental_rate, length, replacement_cost);
+		film savedfilm = new film(title, release_year, language_id, rental_duration, rental_rate, length, replacement_cost);
 		filmRepository.save(savedfilm);
 		return "Saved";
 		}
 
 	@PostMapping("/addstaff")
 	public @ResponseBody String addStaff (@RequestParam String first_name,
-										  @RequestParam String last_name, @RequestParam int address_id, @RequestParam int store_id, @RequestParam String username) {
-		staff savedstaff = new staff (first_name, last_name, address_id, store_id, username);
+										  @RequestParam String last_name, @RequestParam int address_id,@RequestParam String email, @RequestParam int store_id, @RequestParam String username) {
+		staff savedstaff = new staff (first_name, last_name, address_id,email, store_id, username);
 		staffRepository.save(savedstaff);
 		return "Saved";
 	}
