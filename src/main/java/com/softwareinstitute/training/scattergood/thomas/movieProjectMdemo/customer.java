@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customer_id;
     private int store_id;
     private String first_name;
@@ -17,9 +17,9 @@ public class customer {
     private int address_id;
     private String create_date;
 
-    public customer(int customer_id, int store_id, String first_name, String last_name, String email, int address_id, String create_date) {
-        this.customer_id = customer_id;
+    public customer(int store_id, int customer_id, String first_name, String last_name, String email, int address_id, String create_date) {
         this.store_id = store_id;
+        this.customer_id=customer_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
@@ -31,20 +31,20 @@ public class customer {
 
     }
 
+   public int getStore_id() {
+        return store_id;
+    }
+
+    public void setStore_id(int store_id) {
+        this.store_id = store_id;
+    }
+
     public int getCustomer_id() {
         return customer_id;
     }
 
     public void setCustomer_id(int customer_id) {
         this.customer_id = customer_id;
-    }
-
-    public int getStore_id() {
-        return store_id;
-    }
-
-    public void setStore_id(int store_id) {
-        this.store_id = store_id;
     }
 
     public String getFirst_name() {
