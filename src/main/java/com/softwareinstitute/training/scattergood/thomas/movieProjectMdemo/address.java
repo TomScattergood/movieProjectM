@@ -34,7 +34,6 @@ public class address {
     }
 
     public void setAddress_id(int address_id) {
-        this.address_id = address_id;
     }
 
     public String getAddress() {
@@ -42,7 +41,6 @@ public class address {
     }
 
     public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getDistrct() {
@@ -50,7 +48,6 @@ public class address {
     }
 
     public void setDistrct(String distrct) {
-        this.district = district;
     }
 
     public int getCity_id() {
@@ -58,7 +55,6 @@ public class address {
     }
 
     public void setCity_id(int city_id) {
-        this.city_id = city_id;
     }
 
 /*    public String getPostal_code() {
