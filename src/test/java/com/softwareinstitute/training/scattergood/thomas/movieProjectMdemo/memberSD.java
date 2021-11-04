@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class memberSD {
-    @Given("Customer is not already a member")
+/*    @Given("Customer is not already a member")
     public void customerIsNotAlreadyAMember() {
     }
 
@@ -26,5 +26,5 @@ public class memberSD {
 
     @Then("Customer should be told that they are already a member")
     public void customerShouldBeToldThatTheyAreAlreadyAMember() {
-    }
+    }*/
 }
