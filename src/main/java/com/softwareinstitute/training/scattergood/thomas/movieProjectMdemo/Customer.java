@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table (name = "customer")
-public class customer {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class customer {
     private int address_id;
     private String create_date;
 
-    public customer(int store_id, int customer_id, String first_name, String last_name, String email, int address_id, String create_date) {
+    public Customer(int store_id, int customer_id, String first_name, String last_name, String email, int address_id, String create_date) {
         this.store_id = store_id;
         this.customer_id=customer_id;
         this.first_name = first_name;
@@ -27,7 +27,7 @@ public class customer {
         this.create_date=create_date;
     }
 
-    public customer() {
+    public Customer() {
 
     }
 

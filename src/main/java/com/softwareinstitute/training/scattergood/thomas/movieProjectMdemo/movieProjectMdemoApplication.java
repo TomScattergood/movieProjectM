@@ -21,7 +21,7 @@ public class movieProjectMdemoApplication {
 	}
 	@GetMapping("/allcustomers")
 	public @ResponseBody
-	Iterable<customer> getAllCustomers() {
+	Iterable<Customer> getAllCustomers() {
 		return customerRepository.findAll();
 	}
 
@@ -41,7 +41,7 @@ public class movieProjectMdemoApplication {
 	public @ResponseBody
 	String addACustomer(@RequestParam int customer_id, @RequestParam int store_id, @RequestParam String first_name, @RequestParam String last_name,
 						@RequestParam String email, @RequestParam int address_id, @RequestParam String create_date) {
-		customer savedcustomer = new customer(customer_id, store_id, first_name, last_name, email, address_id, create_date);
+		Customer savedcustomer = new Customer(customer_id, store_id, first_name, last_name, email, address_id, create_date);
 		customerRepository.save(savedcustomer);
 		return "Saved";
 	}
