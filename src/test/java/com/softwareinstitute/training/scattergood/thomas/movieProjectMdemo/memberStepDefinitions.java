@@ -4,5 +4,5 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class memberStepDefinitions {
-   // static String amIaMember (String ){return }
+   //static String amIaMember (String first_name, String last_name){return }
 }

@@ -2,7 +2,6 @@ package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 public class CustomerTest {
     @Test

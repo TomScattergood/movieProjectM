@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequestMapping({"/customers", "/films", "/staff"})
 public class movieProjectMdemoApplication {
 	@Autowired
-	private customerRepository customerRepository;
+	private CustomerRepository customerRepository;
 	@Autowired
 	private FilmRepository filmRepository;
 	@Autowired
@@ -47,7 +47,8 @@ public class movieProjectMdemoApplication {
 	}
 
 	@PostMapping("/addfilm")
-	public @ResponseBody String addAFilm (@RequestParam int film_id, @RequestParam String title, @RequestParam String description, @RequestParam int language_id,
+	public @ResponseBody String addAFilm (@RequestParam int film_id, @RequestParam String title,
+										  @RequestParam String description, @RequestParam int language_id,
 										  @RequestParam int length) {
 		Film savedfilm = new Film(film_id, title, description, language_id, length);
 		filmRepository.save(savedfilm);
@@ -55,8 +56,9 @@ public class movieProjectMdemoApplication {
 		}
 
 	@PostMapping("/addstaff")
-	public @ResponseBody String addStaff (@RequestParam String first_name,
-										  @RequestParam String last_name, @RequestParam int address_id,@RequestParam String email, @RequestParam int store_id, @RequestParam String username) {
+	public @ResponseBody String addStaff (@RequestParam String first_name, @RequestParam String last_name,
+										  @RequestParam int address_id,@RequestParam String email,
+										  @RequestParam int store_id, @RequestParam String username) {
 		Staff savedstaff = new Staff(first_name, last_name, address_id,email, store_id, username);
 		staffRepository.save(savedstaff);
 		return "Saved";

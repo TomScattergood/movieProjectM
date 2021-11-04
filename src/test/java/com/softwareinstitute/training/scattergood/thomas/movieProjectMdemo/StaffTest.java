@@ -2,7 +2,6 @@ package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 public class StaffTest {
     @Test
@@ -35,5 +34,11 @@ public class StaffTest {
     public void testUsername(){
         Staff teststaff = new Staff ("Jon", "Stephens", 4, "Jon.Stephens@sakilastaff.com", 2, "Jon");
         Assertions.assertEquals("Jon", teststaff.getUsername(), "The staff did not have the same username");
+    }
+    @Test
+    public void testSetFirst(){
+        Staff teststaff = new Staff();
+        teststaff.setFirst_name("Thomas");
+        Assertions.assertEquals("Thomas", teststaff.getFirst_name(), "The staff did not have the same first name");
     }
 }
