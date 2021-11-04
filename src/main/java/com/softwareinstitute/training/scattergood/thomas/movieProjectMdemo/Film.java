@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "film")
-public class film {
+public class Film {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class film {
     private double replacement_cost;
 
 
-    public film(String title, int release_year, int language_id, int rental_duration, double rental_rate, int length, double replacement_cost) {
+    public Film(String title, int release_year, int language_id, int rental_duration, double rental_rate, int length, double replacement_cost) {
         this.title = title;
        // this.description=description;
         this.release_year=release_year;
@@ -32,7 +32,7 @@ public class film {
 
     }
 
-    public film() {
+    public Film() {
 
     }
 

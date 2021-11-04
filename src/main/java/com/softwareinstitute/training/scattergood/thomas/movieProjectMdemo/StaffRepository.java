@@ -3,7 +3,7 @@ package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 import org.springframework.data.repository.CrudRepository;
 
 
-public interface staffRepository extends CrudRepository <staff, Integer>{
+public interface StaffRepository extends CrudRepository <Staff, Integer>{
 
 
 }

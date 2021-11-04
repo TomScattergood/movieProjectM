@@ -7,16 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootApplication
 @RestController
-@RequestMapping({"/customers", "/films", "/staff", "/addresses"})
+@RequestMapping({"/customers", "/Films", "/Staff"})
 public class movieProjectMdemoApplication {
 	@Autowired
 	private customerRepository customerRepository;
 	@Autowired
-	private filmRepository filmRepository;
+	private FilmRepository filmRepository;
 	@Autowired
-	private staffRepository staffRepository;
-	@Autowired
-	private addressRepository addressRepository;
+	private StaffRepository staffRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(movieProjectMdemoApplication.class, args);
@@ -29,19 +27,15 @@ public class movieProjectMdemoApplication {
 
 	@GetMapping("/allfilms")
 	public @ResponseBody
-	Iterable<film> getAllFilms() {
+	Iterable<Film> getAllFilms() {
 		return filmRepository.findAll();
 	}
 
 	@GetMapping("/allstaff")
 	public @ResponseBody
-	Iterable<staff> getAllStaff(){
+	Iterable<Staff> getAllStaff(){
 		return staffRepository.findAll();
 	}
-
-	@GetMapping("alladdresses")
-	public @ResponseBody
-	Iterable<address> getAllAddresses(){return addressRepository.findAll();}
 
 	@PostMapping("/addcustomer")
 	public @ResponseBody
@@ -55,7 +49,7 @@ public class movieProjectMdemoApplication {
 	@PostMapping("/addfilm")
 	public @ResponseBody String addAFilm (@RequestParam String title, @RequestParam int release_year, @RequestParam int language_id, @RequestParam int rental_duration,
 										  @RequestParam double rental_rate, @RequestParam int length, @RequestParam double replacement_cost) {
-		film savedfilm = new film(title, release_year, language_id, rental_duration, rental_rate, length, replacement_cost);
+		Film savedfilm = new Film(title, release_year, language_id, rental_duration, rental_rate, length, replacement_cost);
 		filmRepository.save(savedfilm);
 		return "Saved";
 		}
@@ -63,7 +57,7 @@ public class movieProjectMdemoApplication {
 	@PostMapping("/addstaff")
 	public @ResponseBody String addStaff (@RequestParam String first_name,
 										  @RequestParam String last_name, @RequestParam int address_id,@RequestParam String email, @RequestParam int store_id, @RequestParam String username) {
-		staff savedstaff = new staff (first_name, last_name, address_id,email, store_id, username);
+		Staff savedstaff = new Staff(first_name, last_name, address_id,email, store_id, username);
 		staffRepository.save(savedstaff);
 		return "Saved";
 	}

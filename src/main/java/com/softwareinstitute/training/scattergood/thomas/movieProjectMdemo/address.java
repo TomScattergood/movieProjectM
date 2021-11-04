@@ -1,4 +1,4 @@
-package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
+/*package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.*;
@@ -57,7 +57,7 @@ public class address {
     public void setCity_id(int city_id) {
     }
 
-/*    public String getPostal_code() {
+    public String getPostal_code() {
         return postal_code;
     }
 
@@ -71,5 +71,6 @@ public class address {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }   */
+    }
 }
+*/
