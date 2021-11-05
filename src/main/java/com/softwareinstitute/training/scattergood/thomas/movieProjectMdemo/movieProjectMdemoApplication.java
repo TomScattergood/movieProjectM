@@ -63,4 +63,16 @@ public class movieProjectMdemoApplication {
 		staffRepository.save(savedstaff);
 		return "Saved";
 	}
+
+	@DeleteMapping("/deletefilm/{film_id")
+	public @ResponseBody String deletefilm(@PathVariable("film id") int film_id){
+		filmRepository.deleteById(film_id);
+		return ("film deleted");
+	}
+
+	@DeleteMapping("deletecustomer/{customer_id")
+	public @ResponseBody String deletecustomer(@PathVariable("customer id") int customer_id){
+		customerRepository.deleteById(customer_id);
+		return("customer deleted");
+	}
 }

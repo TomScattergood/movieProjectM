@@ -17,9 +17,9 @@ public class Customer {
     private int address_id;
     private String create_date;
 
-    public Customer(int store_id, int customer_id, String first_name, String last_name, String email, int address_id, String create_date) {
-        this.store_id = store_id;
+    public Customer(int customer_id, int store_id, String first_name, String last_name, String email, int address_id, String create_date) {
         this.customer_id=customer_id;
+        this.store_id = store_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
