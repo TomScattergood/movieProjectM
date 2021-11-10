@@ -120,6 +120,21 @@
 			<version>7.0.0</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-secretsmanager</artifactId>
+			<version>1.12.105</version>
+		</dependency>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.22</version>
+				<scope>provided</scope>
+			</dependency>
 	</dependencies>
 
 	<build>
@@ -171,6 +186,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<finalName>JPA.MySQL</finalName>
 	</build>
 
 </project>

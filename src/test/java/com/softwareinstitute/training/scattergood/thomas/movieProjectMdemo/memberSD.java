@@ -22,6 +22,7 @@ public class memberSD {
     @When ("I ask whether George Test is a member")
     public void I_ask_whether_George_Test_is_a_member(){
     // Use functionallity to search entire database, if member is found then make boolean true
+
     }
 
     @Then ("I should be told yes")
