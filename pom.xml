@@ -132,8 +132,6 @@
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
-				<version>1.18.22</version>
-				<scope>provided</scope>
 			</dependency>
 	</dependencies>
 
@@ -186,7 +184,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<finalName>JPA.MySQL</finalName>
+		<finalName>Thomas.MySQL</finalName>
 	</build>
 
 </project>

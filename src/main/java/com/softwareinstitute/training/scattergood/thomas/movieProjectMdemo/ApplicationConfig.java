@@ -26,8 +26,8 @@ public class ApplicationConfig {
         AwsSecrets secrets= getSecret();
         return DataSourceBuilder
                 .create()
-            //    .driverClassName("")
-                .url("jdbc:mysql://database1.cyi3q5x7ikfz.us-east-1.rds.amazonaws.com:3306/sakila?useSSL=false&serverTimezone=UTC")
+                .driverClassName("com.mysql.cj.jdbc.Driver")
+                .url("jdbc:" + secrets.getEngine() + "://" + secrets.getHost() + ":" + secrets.getPort() + "/sakila")
                 .username(secrets.getUsername())
                 .password(secrets.getPassword())
                 .build();
@@ -35,7 +35,7 @@ public class ApplicationConfig {
     }
     private AwsSecrets getSecret() {
 
-        String secretName = "TestingDB";
+        String secretName ="TestingDB";
         String region = "us-east-1";
 
         AWSSecretsManager client  = AWSSecretsManagerClientBuilder.standard()
