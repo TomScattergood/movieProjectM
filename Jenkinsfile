@@ -13,8 +13,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                dir("/var/lib/jenkins/workspace/demopipelinetask/") {
+                dir("/var/lib/jenkins/workspace/FullStackApp-TSI/") {
                // sh 'sudo mvn -B -DskipTests clean package'
+                    //sh 'rm-rf var/lib/jenkins/workspace'
                 }
             }
         }
