@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven "MAVEN"
+        MavenInstall
         jdk "JDK"
     }
     stages {
@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir("/var/lib/jenkins/workspace/demopipelinetask/") {
-                sh 'mvn -B -DskipTests clean package'
+                sh 'sudo mvn -B -DskipTests clean package'
                 }
             }
         }
