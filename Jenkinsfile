@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        MavenInstall
+       maven "MavenInstall"
         jdk "JDK"
     }
     stages {
