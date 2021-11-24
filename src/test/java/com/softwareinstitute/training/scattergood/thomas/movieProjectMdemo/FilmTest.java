@@ -1,4 +1,4 @@
-package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
+/*package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -29,3 +29,4 @@ public class FilmTest {
         Assertions.assertEquals(84, testFilm.getLength(), "The film did not have the same length");
     }
 }
+*/

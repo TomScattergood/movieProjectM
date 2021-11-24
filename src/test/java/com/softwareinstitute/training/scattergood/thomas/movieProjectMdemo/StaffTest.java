@@ -1,4 +1,4 @@
-package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
+/*package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -42,3 +42,4 @@ public class StaffTest {
         Assertions.assertEquals("Thomas", teststaff.getFirst_name(), "The staff did not have the same first name");
     }
 }
+*/

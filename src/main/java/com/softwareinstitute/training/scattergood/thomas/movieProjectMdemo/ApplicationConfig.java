@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import javax.sql.DataSource;
 
 @Configuration
@@ -23,44 +22,38 @@ public class ApplicationConfig {
     private Gson gson = new Gson();
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource datasource(){
         AwsSecrets secrets = getSecret();
-        return DataSourceBuilder
-                .create()
-                .driverClassName("com.mysql.cj.jdbc.Driver")
-                .url("jdbc:" + secrets.getEngine() + "://" + secrets.getHost() + ":" + secrets.getPort() + "/sakila")
-                .username(secrets.getUsername())
-                .password(secrets.getPassword())
-                .build();
-    }
-
-    private AwsSecrets getSecret() {
-
-        String secretName = "TestingDB";
-        String region = "us-east-1";
-
-        AWSSecretsManager client  = AWSSecretsManagerClientBuilder.standard()
-                .withRegion(region)
-                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
-                .build();
-
-        String secret, decodedBinarySecret;
-        GetSecretValueRequest getSecretValueRequest = new GetSecretValueRequest()
-                .withSecretId(secretName);
-        GetSecretValueResult getSecretValueResult = null;
-
-        try {
-            getSecretValueResult = client.getSecretValue(getSecretValueRequest);
-        } catch (Exception e) {
-            throw e;
+            return DataSourceBuilder
+                    .create()
+                    .driverClassName("com.mysql.cj.jdbc.Driver")
+                    .url("jdbc:" + secrets.getEngine() + "://" + secrets.getHost() + ":" + secrets.getPort() + "/sakila")
+                    .username(secrets.getUsername())
+                    .password(secrets.getPassword())
+                    .build();
         }
+        private AwsSecrets getSecret(){
+            String secretName = "TestingDB2";
+            String region = "us-east-1";
+            AWSSecretsManager client  = AWSSecretsManagerClientBuilder.standard()
+                    .withRegion(region)
+                    .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
+                    .build();
 
-        if (getSecretValueResult.getSecretString() != null) {
-            secret = getSecretValueResult.getSecretString();
-            return gson.fromJson(secret, AwsSecrets.class);
+            String secret, decodedBinarySecret;
+            GetSecretValueRequest getSecretValueRequest = new GetSecretValueRequest()
+                    .withSecretId(secretName);
+            GetSecretValueResult getSecretValueResult = null;
+
+            try {
+                getSecretValueResult = client.getSecretValue(getSecretValueRequest);
+            } catch (Exception e) {
+                throw e;
+            }
+            if (getSecretValueResult.getSecretString() != null) {
+                secret = getSecretValueResult.getSecretString();
+                return gson.fromJson(secret, AwsSecrets.class);
+            }
+            return null;
         }
-
-        return null;
-    }
-
 }

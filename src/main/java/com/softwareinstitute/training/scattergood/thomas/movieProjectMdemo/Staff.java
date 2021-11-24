@@ -1,4 +1,4 @@
-package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
+/*package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.*;
@@ -75,4 +75,4 @@ public class Staff {
     public void setUsername(String username) {
         this.username = username;
     }
-}
+}*/

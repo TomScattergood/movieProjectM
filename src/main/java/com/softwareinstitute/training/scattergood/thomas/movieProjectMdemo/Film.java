@@ -1,4 +1,4 @@
-package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
+/*package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
@@ -67,4 +67,4 @@ public class Film {
     public void setLength(int length) {
         this.length = length;
     }
-}
+}*/
