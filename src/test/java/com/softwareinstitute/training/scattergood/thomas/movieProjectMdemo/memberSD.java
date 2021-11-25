@@ -1,12 +1,14 @@
 package com.softwareinstitute.training.scattergood.thomas.movieProjectMdemo;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import static org.junit.jupiter.api.Assertions.*;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.List;
+
 import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class memberSD {
     int searchId;
