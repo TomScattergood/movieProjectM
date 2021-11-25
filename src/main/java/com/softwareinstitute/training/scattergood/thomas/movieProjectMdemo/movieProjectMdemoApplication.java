@@ -83,7 +83,7 @@ public class movieProjectMdemoApplication {
         countryRepository.deleteById(country_id);
         return("country deleted");
     }
-
+    @CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/allactors")
 	public @ResponseBody
 	Iterable<Actor> getAllActors(){
@@ -98,10 +98,10 @@ public class movieProjectMdemoApplication {
         actorRepository.save(savedactor);
         return new ResponseEntity<Actor>(savedactor, HttpStatus.OK);
     }
-
-    @DeleteMapping("/deleteactor")
+    @CrossOrigin(origins = "http://localhost:3000")
+    @DeleteMapping("/deleteactor/{actor_id}")
     public @ResponseBody
-    String deleteactor(@RequestParam int actor_id) {
+    String deleteactor(@PathVariable("actor_id") int actor_id) {
         actorRepository.deleteById (actor_id);
         return("actor deleted");
     }
