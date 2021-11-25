@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
-//Jenkins comment test
 @SpringBootApplication
 @RestController
 @RequestMapping({"/customers", "/countries", "/actors"})
